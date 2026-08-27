@@ -47,6 +47,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         /* simply just grab the right field from the json */
         String authHeader = request.getHeader("Authorization");
+
         String jwt;
 
         /* against intuition, here we have to let the request through whether or not it
