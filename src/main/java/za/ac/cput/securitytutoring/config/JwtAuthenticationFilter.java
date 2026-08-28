@@ -59,5 +59,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         /* Bearer is six words + the space = 8, minus one since counting in programming
         *  starts at 0, our token starts at index number seven*/
         jwt = authHeader.substring(7);
+        
     }
 }
