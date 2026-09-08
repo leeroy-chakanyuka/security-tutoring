@@ -41,7 +41,7 @@ import java.util.function.Function;
 public class JwtService {
 
     @Value("${JWT_SECRET_KEY}")
-    private static String secretKey;
+    private String secretKey;
 
     /* we first create an object to grab the WHOLE jwt*/
     private Claims extractAllClaims(String token) {
@@ -122,6 +122,10 @@ public class JwtService {
                 .expiration(new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24)) /* 24hrs */
                 .signWith(getSignInKey())
                 .compact();
+    }
+
+    public String generateToken(UserDetails userDetails){
+        return generateToken(null, userDetails);
     }
 
     /* grab the user from the jwt and see if it fits the current user from userDetails, make sure its not expired */

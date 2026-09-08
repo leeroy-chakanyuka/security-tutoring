@@ -33,6 +33,10 @@ public class ApplicationConfig {
         };
     }
 
+    /**
+     * this beans job is just to check that credentials are proper, we defer work that to code that has already been
+     * written for us
+     */
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider(userDetailsService());
@@ -45,8 +49,9 @@ public class ApplicationConfig {
         return new BCryptPasswordEncoder();
     }
 
+
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config){
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
         return config.getAuthenticationManager();
     }
 

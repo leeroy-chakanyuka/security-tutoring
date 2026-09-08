@@ -27,7 +27,7 @@ public class SecurityConfig {
                 /* not valid to jwt, cookie based auth */
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() /* all these should be no auth */
+                        .requestMatchers("/api/auth/v1/**").permitAll() /* all these should be no auth */
                         .anyRequest().authenticated() /* the rest should be authenticated */
                 )
 
